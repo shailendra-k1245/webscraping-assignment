@@ -3,7 +3,7 @@ const puppeteer = require("puppeteer");
 // const pluginStealth = require("puppeteer-extra-plugin-stealth");
 
 (async () => {
-  puppeteerExtra.use(pluginStealth());
+  // puppeteerExtra.use(pluginStealth());
   const browser = await puppeteer({ headless: false });
   const page = await browser.newPage();
   await page.goto("https://food.grab.com/sg/en/");
