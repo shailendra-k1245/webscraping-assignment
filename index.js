@@ -1,22 +1,12 @@
 const puppeteer = require("puppeteer");
-// const puppeteerExtra = require("puppeteer-extra");
-// const pluginStealth = require("puppeteer-extra-plugin-stealth");
 
 (async () => {
-  // puppeteerExtra.use(pluginStealth());
-  const browser = await puppeteer({ headless: false });
+  const browser = await puppeteer.launch({ headless: false });
   const page = await browser.newPage();
   await page.goto("https://food.grab.com/sg/en/");
   await page.type("input", "Singapore");
   await page.click(".submitBtn___2roqB");
   //click on load_more while it is not disabled
-
-  while (true) {
-    let loadBtn = await page.$(".ant-btn-block");
-    if (loadBtn) {
-      await loadBtn.evaluate((b) => b.click());
-    } else break;
-  }
 
   //click on every restaurant
   //get the lat lang data from network tab
